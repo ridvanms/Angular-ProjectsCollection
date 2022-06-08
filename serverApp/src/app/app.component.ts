@@ -9,4 +9,14 @@ export class AppComponent {
   title = 'serverApp';
   header = 'Awsome';
   subHeader = 'App';
+
+  oddNumbers: number[] = [];
+  evenNumbers: number[] = [];
+  onIntervalFired(firedNumber: number) {
+    if (firedNumber % 2 === 0) {
+      this.evenNumbers.push(firedNumber);
+    } else {
+      this.oddNumbers.push(firedNumber);
+    }
+  }
 }
