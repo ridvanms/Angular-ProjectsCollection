@@ -10,13 +10,19 @@ export class AppComponent {
   header = 'Awsome';
   subHeader = 'App';
 
-  oddNumbers: number[] = [];
-  evenNumbers: number[] = [];
-  onIntervalFired(firedNumber: number) {
-    if (firedNumber % 2 === 0) {
-      this.evenNumbers.push(firedNumber);
-    } else {
-      this.oddNumbers.push(firedNumber);
-    }
-  }
+
+  oddNumbers:number[] = [1,3,5];
+  evenNumbers:number[]=[2,4];
+  showOdds=false;
+
+
+  // oddNumbers: number[] = [];
+  // evenNumbers: number[] = [];
+  // onIntervalFired(firedNumber: number) {
+  //   if (firedNumber % 2 === 0) {
+  //     this.evenNumbers.push(firedNumber);
+  //   } else {
+  //     this.oddNumbers.push(firedNumber);
+  //   }
+  // }
 }

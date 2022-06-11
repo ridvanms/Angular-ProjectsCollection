@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-xs-12">
     <app-odd
       *ngFor="let oddNumber of oddNumbers"
@@ -21,4 +21,30 @@
       (intervalFired)="onIntervalFired($event)"
     ></app-game-control>
   </div>
+</div> -->
+<div class="container">
+  <div class="row">
+    <button class="btn btn-primary" (click)="showOdds = !showOdds">
+      Only odd numbers
+    </button>
+  </div>
+  <div class="row" *ngIf="showOdds">
+    <li
+      class="list-group-item"
+      *ngFor="let odd of oddNumbers"
+      [ngClass]="{ odd: even % 2 !== 0 }"
+      [ngStyle]="{ backgroundColor: odd % 2 !== 0 ? 'yellow' : 'red' }"
+    >
+      {{ odd }}
+    </li>
+  </div>
+  <div class="row" *ngIf="!showOdds">
+    <li class="list-group-item" *ngFor="let even of evenNumbers">
+      {{ even }}
+    </li>
+  </div>
+  <li class="list-group-item" appBasicHighlight>
+    Style me with basic directive
+  </li>
+  <li appBetterHighlight>Setting better directive</li>
 </div>
