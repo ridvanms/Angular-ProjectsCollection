@@ -28,7 +28,7 @@
       Only odd numbers
     </button>
   </div>
-  <div class="row" *ngIf="showOdds">
+  <div class="row" *appUnless="showOdds">
     <li
       class="list-group-item"
       *ngFor="let odd of oddNumbers"
@@ -47,4 +47,12 @@
     Style me with basic directive
   </li>
   <li appBetterHighlight>Setting better directive</li>
+  <hr />
+  <!-- ngSwitch -->
+  <div [ngSwitch]="value" style="color: black">
+    <p *ngSwitchCase="10">Value is 10</p>
+    <p *ngSwitchCase="5">Value is 5</p>
+    <p *ngSwitchCase="100">Value is 100</p>
+    <p *ngSwitchDefault>Value is default</p>
+  </div>
 </div>

@@ -10,11 +10,10 @@ export class AppComponent {
   header = 'Awsome';
   subHeader = 'App';
 
-
-  oddNumbers:number[] = [1,3,5];
-  evenNumbers:number[]=[2,4];
-  showOdds=false;
-
+  oddNumbers: number[] = [1, 3, 5];
+  evenNumbers: number[] = [2, 4];
+  showOdds = false;
+  value = 10;
 
   // oddNumbers: number[] = [];
   // evenNumbers: number[] = [];
