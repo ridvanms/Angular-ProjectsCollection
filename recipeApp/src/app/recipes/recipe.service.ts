@@ -11,22 +11,16 @@ export class RecipeService {
 
   private recipes: Recipe[] = [
     new Recipe(
-      'Recipe',
+      'Pizza',
       'First Recipe',
-      'https://th.bing.com/th/id/R.89b0b4650f29a17030bad22c9e883f61?rik=293O790OghSJ5Q&pid=ImgRaw&r=0',
-      [new Ingredient('Meat', 1), new Ingredient('French Fries', 20)]
+      'https://www.timeoutabudhabi.com/public/images/2020/08/03/Blaze-Pizza1.jpg',
+      [new Ingredient('Cheese', 1), new Ingredient('Olive', 20)]
     ),
     new Recipe(
-      'Another Recipe',
-      'Testing the second one',
-      'https://th.bing.com/th/id/R.89b0b4650f29a17030bad22c9e883f61?rik=293O790OghSJ5Q&pid=ImgRaw&r=0',
-      [new Ingredient('Bean', 2), new Ingredient('Buns', 23)]
-    ),
-    new Recipe(
-      'One More Recipe',
-      'Testing the last',
-      'https://th.bing.com/th/id/R.89b0b4650f29a17030bad22c9e883f61?rik=293O790OghSJ5Q&pid=ImgRaw&r=0',
-      [new Ingredient('Meat', 2), new Ingredient('French Fries', 12)]
+      'Hot Soup',
+      'Second Recipe',
+      'https://th.bing.com/th/id/OIP.-iU39iMSiYCjIsuB_qS1ggHaE8?pid=ImgDet&rs=1',
+      [new Ingredient('Pasta', 2), new Ingredient('Patatoes', 23)]
     ),
   ];
   constructor(private slService: ShoppingListService) {}
