@@ -28,7 +28,7 @@ const appRoutes: Routes = [
     EditServerComponent,
     ServerComponent,
   ],
-  imports: [BrowserModule, FormsModule, RouterModule],
+  imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
   providers: [ServersService],
   bootstrap: [AppComponent],
 })
