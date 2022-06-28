@@ -11,6 +11,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { AppRountingModule } from './app-rounting.module';
+import { RecipeStatrtComponent } from './recipes/recipe-statrt/recipe-statrt.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { AppRountingModule } from './app-rounting.module';
     ShoppingListComponent,
     ShoppingEditComponent,
     DropdownDirective,
+    RecipeStatrtComponent,
   ],
   imports: [BrowserModule, AppRountingModule],
   providers: [],
