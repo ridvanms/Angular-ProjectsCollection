@@ -1,14 +1,17 @@
 {
   "name": "src",
   "version": "1.0.0",
-  "description": "",
-  "main": "karma.conf.js",
+  "default": "karma.conf.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ridvan",
   "license": "ISC",
   "dependencies": {
-    "@angular/cli": "^14.0.4"
-  }
+    "@angular/cli": "^14.0.4",
+    "nodejs": "^0.0.0",
+    "rxjs": "^6.6.7",
+    "rxjs-compat": "^6.6.7"
+  },
+  "description": ""
 }
