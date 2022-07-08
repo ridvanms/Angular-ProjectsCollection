@@ -73,7 +73,7 @@
           style="margin-bottom: 8px"
         >
           <label>
-            <input type="radio" name="gneder" ngModel [value]="gender" />
+            <input type="radio" name="gender" ngModel [value]="gender" />
             {{ gender }}
           </label>
         </div>
@@ -90,6 +90,17 @@
           Submit
         </button>
       </form>
+      <hr />
+      <div class="row" *ngIf="f.submitted">
+        <div class="col-xs-12">
+          <h3>Your Data</h3>
+          <p>username: {{ user.username }}</p>
+          <p>Mail: {{ user.email }}</p>
+          <p>Secret Question: {{ user.secretQuestion }}</p>
+          <p>answer: {{ user.answer }}</p>
+          <p>gender: {{ user.gender }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

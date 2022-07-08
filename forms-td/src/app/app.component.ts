@@ -11,6 +11,13 @@ export class AppComponent {
   defaultValue = 'pet';
   answer: string = '';
   genders = ['male', 'female'];
+  user = {
+    username: '',
+    email: '',
+    secretQuestion: '',
+    answer: '',
+    gender: '',
+  };
 
   suggestUserName(form: NgForm) {
     const suggestedName = 'Koko';
@@ -20,8 +27,13 @@ export class AppComponent {
       },
     });
   }
+
   onSubmit(form: NgForm) {
-    console.log(form);
+    this.user.username = form.value.userData.username;
+    this.user.email = form.value.userData.email;
+    this.user.secretQuestion = form.value.userData.secret;
+    this.user.answer = form.value.userData.answer;
+    this.user.gender = form.value.userData.gender;
   }
 
   // onSubmit() {
