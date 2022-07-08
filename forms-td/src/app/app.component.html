@@ -20,7 +20,12 @@
               >Please enter a valid value!</span
             >
           </div>
-          <button class="btn btn-default" type="button">
+          <button
+            class="btn btn-default"
+            type="button"
+            (click)="suggestUserName(f)"
+            #f
+          >
             Suggest an Username
           </button>
           <div class="form-group">
