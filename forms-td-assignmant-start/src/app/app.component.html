@@ -13,24 +13,90 @@
            Upon submitting the form, you should simply print the Value of the Form to the Console.
            Optionally, display it in your template.
       -->
-      <form>
+      <form #f="ngForm">
         <div class="container">
-          <div class="row">
-            <div class="form-control">
-              <label for="email">Mail </label>
-              <input
-                class="form-control"
-                type="text"
-                name="emial"
-                ngModel
-                required
-                emial
-                #emial="ngModel"
-              />
-              <button class="btn btn-success">Generate email</button>
-            </div>
-            <div class="form-control"></div>
+          <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
+            <!-- Mail -->
+            <label for="email">Mail </label>
+            <input
+              class="form-control"
+              type="text"
+              name="email"
+              ngModel
+              required
+              email
+              #email="ngModel"
+            />
+            <span
+              class="help-block"
+              style="color: red"
+              *ngIf="!email.valid && email.touched"
+              >Please enter valid value</span
+            >
+            <button class="btn btn-success" (click)="generateEmail(f)" #f>
+              Generate email
+            </button>
           </div>
+          <!-- password filed -->
+          <div class="row">
+            <label for="password"> Password </label>
+            <input
+              id="fPassword"
+              type="password"
+              name="fpassword"
+              class="form-control"
+              ngModel
+              requried
+              text
+              #text="ngModel"
+            />
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+              id="sPassword"
+              type="password"
+              name="spassword"
+              class="form-control"
+              ngModel
+              requried
+              text
+              #text="ngModel"
+            />
+
+            <span
+              class="help-block"
+              style="color: rgb(195, 55, 36)"
+              *ngIf="
+                f.value.fpassword !== f.value.spassword &&
+                f.value.fpassword !== '' &&
+                f.value.spassword !== ''
+              "
+              >Passwords have differences</span
+            >
+          </div>
+          <!-- subscription -->
+          <div class="row">
+            <label for="Subscription">Subscription</label>
+            <select
+              id="sub"
+              name="sub"
+              [ngModel]="defaultValue"
+              class="form-control"
+            >
+              <option value="Basic">Basic</option>
+              <option value="Advanced">Advanced</option>
+              <option value="Pro">Pro</option>
+            </select>
+          </div>
+          <button
+            #f
+            class="btn btn-primary"
+            [disabled]="
+              f.value.fpassword !== f.value.spassword ||
+              f.value.fpassword === ''
+            "
+          >
+            Test Button
+          </button>
         </div>
       </form>
     </div>
