@@ -13,6 +13,26 @@
            Upon submitting the form, you should simply print the Value of the Form to the Console.
            Optionally, display it in your template.
       -->
+      <form>
+        <div class="container">
+          <div class="row">
+            <div class="form-control">
+              <label for="email">Mail </label>
+              <input
+                class="form-control"
+                type="text"
+                name="emial"
+                ngModel
+                required
+                emial
+                #emial="ngModel"
+              />
+              <button class="btn btn-success">Generate email</button>
+            </div>
+            <div class="form-control"></div>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>
