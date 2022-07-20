@@ -15,11 +15,23 @@
 
           Upon submitting the form, simply print the value to the console
       -->
-      <form >
+      <form [formGroup]="signupForm">
         <h1>Lazy Project</h1>
-        <div class="form-group">
+        <div class="form-group" FormGroupName="userData">
           <label class="email">Mail</label>
-          <input class="form-control" type="text" />
+          <input
+            class="form-control"
+            type="text"
+            formControlName="email"
+            id="email"
+          />
+          <span
+            *ngIf="
+              !signupForm.get('email')?.valid &&
+              signupForm.get('email')?.touched
+            "
+            >Please enter a valid email!</span
+          >
         </div>
         <div>
           <select name="project-status" id="">
@@ -29,7 +41,13 @@
           </select>
         </div>
         <hr />
-        <button class="btn btn-danger">Submit</button>
+        <button
+          class="btn btn-danger"
+          [disabled]="!signupForm.get('email')?.valid"
+          (click)="onSubmit()"
+        >
+          Submit
+        </button>
       </form>
     </div>
   </div>
