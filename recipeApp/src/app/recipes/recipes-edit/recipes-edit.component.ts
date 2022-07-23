@@ -51,6 +51,15 @@ export class RecipesEditComponent implements OnInit {
     return (<FormArray>this.recipeForm.get('ingredients')).controls;
   }
 
+  onAddIngredient() {
+    (<FormArray>this.recipeForm.get('ingredients')).push(
+      new FormGroup({
+        name: new FormControl(),
+        amount: new FormControl(),
+      })
+    );
+  }
+
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       this.id = +params['id'];

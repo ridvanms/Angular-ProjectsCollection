@@ -57,6 +57,7 @@
           <div
             class="row"
             *ngFor="let ingredient of getControl(); let i = index"
+            style="margin-top: 8px"
             [formGroupName]="i"
           >
             <div class="col-xs-8">
@@ -71,6 +72,14 @@
             </div>
             <div class="col-xs-2">
               <button type="button" class="btn btn-danger">X</button>
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-xs-12">
+              <button class="btn btn-success" (click)="onAddIngredient()">
+                Add ingredient
+              </button>
             </div>
           </div>
         </div>
