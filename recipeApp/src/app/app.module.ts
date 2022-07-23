@@ -25,7 +25,7 @@ import { RecipeStatrtComponent } from './recipes/recipe-statrt/recipe-statrt.com
     DropdownDirective,
     RecipeStatrtComponent,
   ],
-  imports: [BrowserModule, AppRountingModule],
+  imports: [BrowserModule, AppRountingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
