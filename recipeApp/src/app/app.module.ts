@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { RecipesComponent } from './recipes/recipes.component';
@@ -12,6 +12,7 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { DropdownDirective } from './shared/dropdown.directive';
 import { AppRountingModule } from './app-rounting.module';
 import { RecipeStatrtComponent } from './recipes/recipe-statrt/recipe-statrt.component';
+import { RecipesEditComponent } from './recipes/recipes-edit/recipes-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,8 +25,9 @@ import { RecipeStatrtComponent } from './recipes/recipe-statrt/recipe-statrt.com
     ShoppingEditComponent,
     DropdownDirective,
     RecipeStatrtComponent,
+    RecipesEditComponent,
   ],
-  imports: [BrowserModule, AppRountingModule, FormsModule],
+  imports: [BrowserModule, AppRountingModule, ReactiveFormsModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
