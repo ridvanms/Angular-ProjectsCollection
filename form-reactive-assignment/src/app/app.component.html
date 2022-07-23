@@ -34,7 +34,13 @@
           >
         </div>
         <div>
-          <select name="project-status" id="">
+          <label class="form-group" style="color: gray">project status</label>
+          <select
+            name="project-status"
+            id="status"
+            class="form-control"
+            formControlName="status"
+          >
             <option value="stable">Stable</option>
             <option value="critical">Critical</option>
             <option value="Finished">Finished</option>

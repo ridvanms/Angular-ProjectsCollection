@@ -12,9 +12,11 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.signupForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
+      status: new FormControl(null),
     });
     this.signupForm.setValue({
       email: 'max@abv.bg',
+      status: 'stable',
     });
   }
   onSubmit() {
