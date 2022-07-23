@@ -37,7 +37,8 @@ export class AppComponent {
 
     form.reset();
   }
-
+//   submitting signupForm
+  
   // onSubmit() {
   //   console.log(this.signupForm);
   // }
