@@ -13,6 +13,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { AppRountingModule } from './app-rounting.module';
 import { RecipeStatrtComponent } from './recipes/recipe-statrt/recipe-statrt.component';
 import { RecipesEditComponent } from './recipes/recipes-edit/recipes-edit.component';
+import { RecipeService } from './recipes/recipe.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,7 @@ import { RecipesEditComponent } from './recipes/recipes-edit/recipes-edit.compon
     RecipesEditComponent,
   ],
   imports: [BrowserModule, AppRountingModule, ReactiveFormsModule, FormsModule],
-  providers: [],
+  providers: [RecipeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
