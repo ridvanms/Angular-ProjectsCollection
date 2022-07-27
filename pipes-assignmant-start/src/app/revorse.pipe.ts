@@ -5,6 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class RevorsePipe implements PipeTransform {
   transform(value: any): any {
-    return null;
+    return value.split('').reverse().join('');
   }
 }
