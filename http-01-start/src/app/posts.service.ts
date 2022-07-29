@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Post } from './post.model';
 import { catchError, map, Subject, throwError } from 'rxjs';
@@ -31,7 +31,10 @@ export class PostsService {
   fetchPost() {
     return this.http
       .get<{ [key: string]: Post }>(
-        'https://ng-firebaseproject-default-rtdb.europe-west1.firebasedatabase.app/posts.json'
+        'https://ng-firebaseproject-default-rtdb.europe-west1.firebasedatabase.app/posts.json',
+        {
+          headers: new HttpHeaders({ 'Custom-Header': 'Hello' }),
+        }
       )
       .pipe(
         map((responseData) => {
