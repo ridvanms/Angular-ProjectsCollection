@@ -46,7 +46,7 @@ export class PostsService {
         'https://ng-firebaseproject-default-rtdb.europe-west1.firebasedatabase.app/posts.json',
         {
           headers: new HttpHeaders({ 'Custom-Header': 'Hello' }),
-          params: new HttpParams().set('print', 'pretty'),
+          params: searchParams,
         }
       )
       .pipe(
