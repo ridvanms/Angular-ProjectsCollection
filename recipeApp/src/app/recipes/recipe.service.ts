@@ -10,20 +10,21 @@ import { Recipe } from './recipe.mode';
 export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
 
-  private recipes: Recipe[] = [
-    new Recipe(
-      'Pizza',
-      'First Recipe',
-      'https://www.timeoutabudhabi.com/public/images/2020/08/03/Blaze-Pizza1.jpg',
-      [new Ingredient('Cheese', 1), new Ingredient('Olive', 20)]
-    ),
-    new Recipe(
-      'Hot Soup',
-      'Second Recipe',
-      'https://th.bing.com/th/id/OIP.-iU39iMSiYCjIsuB_qS1ggHaE8?pid=ImgDet&rs=1',
-      [new Ingredient('Pasta', 2), new Ingredient('Patatoes', 23)]
-    ),
-  ];
+  // private recipes: Recipe[] = [
+  //   new Recipe(
+  //     'Pizza',
+  //     'First Recipe',
+  //     'https://www.timeoutabudhabi.com/public/images/2020/08/03/Blaze-Pizza1.jpg',
+  //     [new Ingredient('Cheese', 1), new Ingredient('Olive', 20)]
+  //   ),
+  //   new Recipe(
+  //     'Hot Soup',
+  //     'Second Recipe',
+  //     'https://th.bing.com/th/id/OIP.-iU39iMSiYCjIsuB_qS1ggHaE8?pid=ImgDet&rs=1',
+  //     [new Ingredient('Pasta', 2), new Ingredient('Patatoes', 23)]
+  //   ),
+  // ];
+  private recipes: Recipe[] = [];
   constructor(private slService: ShoppingListService) {}
 
   setRecieps(recipes: Recipe[]) {
