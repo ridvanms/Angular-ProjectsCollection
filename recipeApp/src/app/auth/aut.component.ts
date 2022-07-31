@@ -4,4 +4,10 @@ import { Component } from '@angular/core';
   selector: 'auth',
   templateUrl: './auth.component.html',
 })
-export class AuthComponent {}
+export class AuthComponent {
+  isLoggedIn = true;
+
+  onSwitch() {
+    this.isLoggedIn = !this.isLoggedIn;
+  }
+}
