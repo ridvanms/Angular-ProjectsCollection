@@ -17,6 +17,7 @@ import { RecipeStatrtComponent } from './recipes/recipe-statrt/recipe-statrt.com
 import { RecipesEditComponent } from './recipes/recipes-edit/recipes-edit.component';
 import { RecipeService } from './recipes/recipe.service';
 import { AuthComponent } from './auth/aut.component';
+import { AuthService } from './auth/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,7 @@ import { AuthComponent } from './auth/aut.component';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [RecipeService],
+  providers: [RecipeService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
