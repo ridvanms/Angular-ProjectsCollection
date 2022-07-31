@@ -16,6 +16,7 @@ import { AppRountingModule } from './app-rounting.module';
 import { RecipeStatrtComponent } from './recipes/recipe-statrt/recipe-statrt.component';
 import { RecipesEditComponent } from './recipes/recipes-edit/recipes-edit.component';
 import { RecipeService } from './recipes/recipe.service';
+import { AuthComponent } from './auth/aut.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import { RecipeService } from './recipes/recipe.service';
     DropdownDirective,
     RecipeStatrtComponent,
     RecipesEditComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
