@@ -1,13 +1,14 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Subject, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
+import { User } from './user.model';
 
 export interface AuthResponseData {
   idToken: string;
   email: string;
   refreshToken: string;
-  expiresToken: string;
+  expiresIn: string;
   localId: string;
   registered?: boolean;
 }
@@ -17,6 +18,8 @@ export interface AuthResponseData {
 })
 export class AuthService {
   constructor(private http: HttpClient) {}
+
+  user = new Subject<User>();
 
   signup(email: string, password: string) {
     return this.http
@@ -28,7 +31,17 @@ export class AuthService {
           returnSecureToken: true,
         }
       )
-      .pipe(catchError(this.errorHandler));
+      .pipe(
+        catchError(this.errorHandler),
+        tap((resData) => {
+          this.handleAuthentication(
+            resData.email,
+            resData.localId,
+            resData.idToken,
+            +resData.expiresIn
+          );
+        })
+      );
   }
   login(email: string, password: string) {
     return this.http
@@ -40,7 +53,17 @@ export class AuthService {
           returnSecureToken: true,
         }
       )
-      .pipe(catchError(this.errorHandler));
+      .pipe(
+        catchError(this.errorHandler),
+        tap((resData) => {
+          this.handleAuthentication(
+            resData.email,
+            resData.localId,
+            resData.idToken,
+            +resData.expiresIn
+          );
+        })
+      );
   }
   private errorHandler(errorRes: HttpErrorResponse) {
     let errorMessage = 'An unknown error occurred!';
@@ -60,5 +83,15 @@ export class AuthService {
         break;
     }
     return throwError(errorMessage);
+  }
+  private handleAuthentication(
+    email: string,
+    userId: string,
+    token: string,
+    expiresIn: number
+  ) {
+    const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
+    const user = new User(email, userId, token, expirationDate);
+    this.user.next(user);
   }
 }

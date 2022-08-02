@@ -19,6 +19,8 @@ import { RecipeService } from './recipes/recipe.service';
 import { AuthComponent } from './auth/aut.component';
 import { AuthService } from './auth/auth.service';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner';
+import { User } from './auth/user.model';
+
 @NgModule({
   declarations: [
     AppComponent,
