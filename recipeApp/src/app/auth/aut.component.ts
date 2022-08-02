@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { AuthResponseData, AuthService } from './auth.service';
@@ -13,13 +14,15 @@ export class AuthComponent {
   isLoading = false;
   error: string = null;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSwitch() {
     this.isLoggedIn = !this.isLoggedIn;
   }
   onSubmit(form: NgForm) {
-    if (!form.valid) return;
+    if (!form.valid) {
+      return;
+    }
     console.log('Submitting...');
     console.log(form.value);
 
@@ -39,6 +42,7 @@ export class AuthComponent {
       (resData) => {
         console.log(resData);
         this.isLoading = false;
+        this.router.navigate(['/recipes']);
       },
       (errorMessage) => {
         console.log(errorMessage);
