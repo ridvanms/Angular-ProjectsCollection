@@ -11,12 +11,12 @@ import { Recipe } from './recipes/recipe.mode';
 import { AuthComponent } from './auth/aut.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/recipes', pathMatch: 'full' },
+  { path: '', redirectTo: 'auth', pathMatch: 'full' },
   {
     path: 'recipes',
     component: RecipesComponent,
     children: [
-      { path: '', component: RecipeStatrtComponent },
+      { path: '', component: AuthComponent },
       { path: 'new', component: RecipesEditComponent },
       {
         path: ':id',
