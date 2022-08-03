@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -20,6 +20,7 @@ import { AuthComponent } from './auth/aut.component';
 import { AuthService } from './auth/auth.service';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner';
 import { User } from './auth/user.model';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,15 @@ import { User } from './auth/user.model';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [RecipeService, AuthService],
+  providers: [
+    RecipeService,
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
