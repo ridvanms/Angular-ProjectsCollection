@@ -1,8 +1,14 @@
-import { Component, ComponentFactoryResolver, Inject } from '@angular/core';
+import {
+  Component,
+  ComponentFactoryResolver,
+  Inject,
+  ViewChild,
+} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AlertComponent } from '../shared/alert/alet.component';
+import { PlaceHolderDirective } from '../shared/placeHolder/placeholder.directive';
 
 import { AuthResponseData, AuthService } from './auth.service';
 
@@ -11,6 +17,9 @@ import { AuthResponseData, AuthService } from './auth.service';
   templateUrl: './auth.component.html',
 })
 export class AuthComponent {
+  @ViewChild(PlaceHolderDirective, { static: false })
+  alertHost: PlaceHolderDirective;
+
   isLoggedIn = true;
   isLoading = false;
   error: string = null;
@@ -67,5 +76,8 @@ export class AuthComponent {
 
     const alertCmpFactory =
       this.componentFactoryResolver.resolveComponentFactory(AlertComponent);
+    const hostViewContainerRef = this.alertHost.viewContainerRef;
+    hostViewContainerRef.clear();
+    hostViewContainerRef.createComponent(alertCmpFactory);
   }
 }
