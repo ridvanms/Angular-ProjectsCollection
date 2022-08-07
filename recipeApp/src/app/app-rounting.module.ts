@@ -10,15 +10,20 @@ import { RecipeResolverService } from './recipes/recipe-resolver.service';
 import { Recipe } from './recipes/recipe.mode';
 import { AuthComponent } from './auth/aut.component';
 import { AuthGuard } from './auth/auth.guard';
+import { SharedModule } from './shared/shared.module';
+import { RecipesRoutingModule } from './recipes/recepies-rounting.module';
+import { ShoppingListModule } from './shopping-list/shopping-list.module';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-
-  { path: 'auth', component: AuthComponent },
 ];
 @NgModule({
   declarations: [],
-  imports: [CommonModule, RouterModule.forRoot(appRoutes)],
-  exports: [RouterModule],
+  imports: [
+    RouterModule.forRoot(appRoutes),
+    SharedModule,
+    RecipesRoutingModule,
+  ],
+  exports: [RouterModule, RecipesRoutingModule],
 })
 export class AppRountingModule {}

@@ -14,19 +14,22 @@ import { RecipesModule } from './recipes/recepies.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
+import { RecipesRoutingModule } from './recipes/recepies-rounting.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, AuthComponent],
+  declarations: [AppComponent, HeaderComponent],
   imports: [
     BrowserModule,
     AppRountingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule,
     RecipesModule,
     ShoppingListModule,
     SharedModule,
     CoreModule,
+    AppRountingModule,
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
