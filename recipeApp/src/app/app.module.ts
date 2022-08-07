@@ -16,6 +16,7 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { AlertComponent } from './shared/alert/alet.component';
 import { PlaceHolderDirective } from './shared/placeHolder/placeholder.directive';
 import { RecipesModule } from './recipes/recepies.module';
+import { RecipesRoutingModule } from './recipes/recepies-rounting.module';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { RecipesModule } from './recipes/recepies.module';
     HttpClientModule,
     FormsModule,
     RecipesModule,
+    RecipesRoutingModule,
   ],
   providers: [
     RecipeService,
