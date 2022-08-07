@@ -18,6 +18,6 @@ import { RecipesComponent } from './recipes.component';
     RecipeStatrtComponent,
     RecipesEditComponent,
   ],
-  imports: [RouterModule, CommonModule, ReactiveFormsModule],
+  imports: [RouterModule, ReactiveFormsModule],
 })
 export class RecipesModule {}
