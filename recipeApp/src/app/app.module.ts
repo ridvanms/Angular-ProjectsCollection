@@ -24,12 +24,10 @@ import { AuthModule } from './auth/auth.module';
     AppRountingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RecipesModule,
-    ShoppingListModule,
+
     SharedModule,
     CoreModule,
     AppRountingModule,
-    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
