@@ -1,25 +1,28 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner';
-import { AlertComponent } from './alert/alet.component';
+import { CommonModule } from '@angular/common';
+
+import { AlertComponent } from './alert/alert.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { PlaceholderDirective } from './placeholder/placeholder.directive';
 import { DropdownDirective } from './dropdown.directive';
-import { PlaceHolderDirective } from './placeHolder/placeholder.directive';
+import { LoggingService } from '../logging.service';
 
 @NgModule({
   declarations: [
-    LoadingSpinnerComponent,
     AlertComponent,
-    PlaceHolderDirective,
-    DropdownDirective,
+    LoadingSpinnerComponent,
+    PlaceholderDirective,
+    DropdownDirective
   ],
   imports: [CommonModule],
   exports: [
-    LoadingSpinnerComponent,
     AlertComponent,
-    CommonModule,
-    PlaceHolderDirective,
+    LoadingSpinnerComponent,
+    PlaceholderDirective,
     DropdownDirective,
+    CommonModule
   ],
   entryComponents: [AlertComponent],
+  providers: [LoggingService]
 })
 export class SharedModule {}
