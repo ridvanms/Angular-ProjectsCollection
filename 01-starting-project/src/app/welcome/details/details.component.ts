@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
+
 import { AnalyticsService } from 'src/app/shared/analytics.service';
 import { HighlightDirective } from 'src/app/shared/highlight.directive';
 
