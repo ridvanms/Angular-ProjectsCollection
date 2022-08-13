@@ -9,6 +9,5 @@ import { WelcomeComponent } from './welcome/welcome.component';
 @NgModule({
   declarations: [],
   imports: [BrowserModule, AppComponent],
-  providers: [],
 })
 export class AppModule {}
