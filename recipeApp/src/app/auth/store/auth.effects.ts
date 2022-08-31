@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Actions, ofType, Effect } from "@ngrx/effects";
@@ -8,15 +7,6 @@ import { HttpClient } from "@angular/common/http";
 import { environment } from "../../../environments/environment";
 
 import * as AuthActions from "./auth.actions";
-=======
-import { HttpClient } from '@angular/common/http';
-import { Actions,  Effect,  ofType } from '@ngrx/effects';
-import { of } from 'rxjs';
-import { catchError, map, switchMap } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
-
-import * as AuthAction from './auth.actions';
->>>>>>> 0b7ac1a53d942d6d3ef1248add50816b17bea20e
 
 export interface AuthResponseData {
   kind: string;
@@ -28,7 +18,6 @@ export interface AuthResponseData {
   registered?: boolean;
 }
 
-<<<<<<< HEAD
 @Injectable()
 export class AuthEffects {
   @Effect()
@@ -92,37 +81,4 @@ export class AuthEffects {
     private http: HttpClient,
     private router: Router
   ) {}
-=======
-export class AuthEffects {
-  @Effect()
-  
-  constructor(private actions$: Actions, private http: HttpClient) {}
-
-  authLogin = this.actions$.pipe(
-    ofType(AuthAction.LOGIN_START),
-    switchMap((authData: AuthAction.LoginStart) => {
-      return this.http.post<AuthResponseData>(
-        'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=' +
-          environment.firebaseAPIKey,
-        {
-          email: authData.payload.email,
-          password: authData.payload.password,
-          returnSecureToken: true,
-        }
-      ).pipe(
-        catchError(
-          error => {
-            //...
-            of();
-          }
-          ),map(resData => {
-            //...
-            of();
-          })
-        )
-      
-    })
-  );
-
->>>>>>> 0b7ac1a53d942d6d3ef1248add50816b17bea20e
 }

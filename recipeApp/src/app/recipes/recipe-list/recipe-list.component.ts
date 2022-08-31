@@ -6,15 +6,9 @@ import { Recipe } from "../recipe.model";
 import { RecipeService } from "../recipe.service";
 
 @Component({
-<<<<<<< HEAD
   selector: "app-recipe-list",
   templateUrl: "./recipe-list.component.html",
   styleUrls: ["./recipe-list.component.css"],
-=======
-  selector: 'app-recipe-list',
-  templateUrl: './recipe-list.component.html',
-  styleUrls: ['./recipe-list.component.css'],
->>>>>>> 0b7ac1a53d942d6d3ef1248add50816b17bea20e
 })
 export class RecipeListComponent implements OnInit, OnDestroy {
   recipes: Recipe[];
@@ -36,11 +30,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   }
 
   onNewRecipe() {
-<<<<<<< HEAD
     this.router.navigate(["new"], { relativeTo: this.route });
-=======
-    this.router.navigate(['new'], { relativeTo: this.route });
->>>>>>> 0b7ac1a53d942d6d3ef1248add50816b17bea20e
   }
 
   ngOnDestroy() {

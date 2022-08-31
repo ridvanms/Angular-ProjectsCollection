@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Router } from "@angular/router";
@@ -10,18 +9,6 @@ import { environment } from "../../environments/environment";
 import { User } from "./user.model";
 import * as fromApp from "../store/app.reducer";
 import * as AuthActions from "./store/auth.actions";
-=======
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { throwError, BehaviorSubject } from 'rxjs';
-import { environment } from '../../environments/environment';
-import { User } from './user.model';
-import { Store } from '@ngrx/store';
-import * as FromApp from '../store/app.reducer';
-import * as AuthAction from './store/auth.actions';
-import { catchError, tap } from 'rxjs/operators';
->>>>>>> 0b7ac1a53d942d6d3ef1248add50816b17bea20e
 
 export interface AuthResponseData {
   kind: string;

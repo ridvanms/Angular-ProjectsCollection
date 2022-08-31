@@ -5,15 +5,9 @@ import { FormGroup, FormControl, FormArray, Validators } from "@angular/forms";
 import { RecipeService } from "../recipe.service";
 
 @Component({
-<<<<<<< HEAD
   selector: "app-recipe-edit",
   templateUrl: "./recipe-edit.component.html",
   styleUrls: ["./recipe-edit.component.css"],
-=======
-  selector: 'app-recipe-edit',
-  templateUrl: './recipe-edit.component.html',
-  styleUrls: ['./recipe-edit.component.css'],
->>>>>>> 0b7ac1a53d942d6d3ef1248add50816b17bea20e
 })
 export class RecipeEditComponent implements OnInit {
   id: number;
