@@ -1,5 +1,5 @@
-import { Ingredient } from '../../shared/ingredient.model';
-import * as ShoppingListActions from './shopping-list.actions';
+import { Ingredient } from "../../shared/ingredient.model";
+import * as ShoppingListActions from "./shopping-list.actions";
 
 export interface State {
   ingredients: Ingredient[];
@@ -8,7 +8,7 @@ export interface State {
 }
 
 const initialState: State = {
-  ingredients: [new Ingredient('Apples', 5), new Ingredient('Tomatoes', 10)],
+  ingredients: [new Ingredient("Apples", 5), new Ingredient("Tomatoes", 10)],
   editedIngredient: null,
   editedIngredientIndex: -1,
 };
