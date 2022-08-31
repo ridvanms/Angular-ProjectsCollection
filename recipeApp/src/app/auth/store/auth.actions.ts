@@ -19,5 +19,10 @@ export class Login implements Action {
 export class Logout implements Action {
   readonly type = LOGOUT;
 }
+export class LoginStart implements Action {
+  readonly type = LOGIN_START;
 
-export type AuthAction = Login | Logout;
+  constructor(public payload: { email: string; password: string }) {}
+}
+
+export type AuthAction = Login | Logout | LoginStart;
