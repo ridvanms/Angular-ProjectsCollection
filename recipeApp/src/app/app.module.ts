@@ -18,9 +18,9 @@ import * as fromApp from './store/app.reducer';
     AppRoutingModule,
     StoreModule.forRoot(fromApp.appReducer),
     SharedModule,
-    CoreModule
+    CoreModule,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
   // providers: [LoggingService]
 })
 export class AppModule {}

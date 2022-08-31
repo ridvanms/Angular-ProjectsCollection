@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@ngrx/effects": "^14.3.0",
     "@ngrx/store": "^14.1.0",
     "bootstrap": "^5.2.0",
     "jquery": "^3.6.0",
