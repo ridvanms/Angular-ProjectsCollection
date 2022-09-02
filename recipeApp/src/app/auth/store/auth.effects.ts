@@ -21,6 +21,9 @@ export interface AuthResponseData {
 @Injectable()
 export class AuthEffects {
   @Effect()
+  authSignup = this.actions$.pipe(ofType(AuthActions.SIGNUP_START));
+
+  @Effect()
   authLogin = this.actions$.pipe(
     ofType(AuthActions.LOGIN_START),
     switchMap((authData: AuthActions.LoginStart) => {
@@ -70,7 +73,7 @@ export class AuthEffects {
 
   @Effect({ dispatch: false })
   authSuccess = this.actions$.pipe(
-    ofType(AuthActions.LOGIN),
+    ofType(AuthActions.AUTHENTICATE_SUCCESS),
     tap(() => {
       this.router.navigate(["/"]);
     })
