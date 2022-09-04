@@ -23,7 +23,7 @@ export class AuthEffects {
   @Effect()
   authLogin = this.actions$.pipe(
     ofType(AuthActions.LOGIN_START),
-    switchMap((authData: AuthActions.LoginStart) => {
+    switchMap((authData: AuthActions.AuthenticateSuccess) => {
       return this.http
         .post<AuthResponseData>(
           "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" +
@@ -49,7 +49,7 @@ export class AuthEffects {
           catchError((errorRes) => {
             let errorMessage = "An unknown error occurred!";
             if (!errorRes.error || !errorRes.error.error) {
-              return of(new AuthActions.LoginFail(errorMessage));
+              return of(new AuthActions.AuthenticateFail(errorMessage));
             }
             switch (errorRes.error.error.message) {
               case "EMAIL_EXISTS":
@@ -62,7 +62,7 @@ export class AuthEffects {
                 errorMessage = "This password is not correct.";
                 break;
             }
-            return of(new AuthActions.LoginFail(errorMessage));
+            return of(new AuthActions.AuthenticateFail(errorMessage));
           })
         );
     })

@@ -22,16 +22,20 @@ export class Logout implements Action {
   readonly type = LOGOUT;
 }
 
-export class LoginStart implements Action {
+export class AuthenticateSuccess implements Action {
   readonly type = LOGIN_START;
 
   constructor(public payload: { email: string; password: string }) {}
 }
 
-export class LoginFail implements Action {
+export class AuthenticateFail implements Action {
   readonly type = LOGIN_FAIL;
 
   constructor(public payload: string) {}
 }
 
-export type AuthActions = Login | Logout | LoginStart | LoginFail;
+export type AuthActions =
+  | Login
+  | Logout
+  | AuthenticateSuccess
+  | AuthenticateFail;
