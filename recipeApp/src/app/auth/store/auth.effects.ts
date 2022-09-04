@@ -22,7 +22,7 @@ export interface AuthResponseData {
 export class AuthEffects {
   @Effect()
   authSignup = this.actions$.pipe(ofType(AuthActions.SIGN_UP));
-
+  
   @Effect()
   authLogin = this.actions$.pipe(
     ofType(AuthActions.LOGIN_START),
