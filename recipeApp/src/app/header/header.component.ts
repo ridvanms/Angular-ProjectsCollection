@@ -7,6 +7,7 @@ import { DataStorageService } from "../shared/data-storage.service";
 import { AuthService } from "../auth/auth.service";
 import * as fromApp from "../store/app.reducer";
 import * as AuthActions from "../auth/store/auth.actions";
+import { Route, Router } from "@angular/router";
 
 @Component({
   selector: "app-header",
@@ -19,7 +20,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(
     private dataStorageService: DataStorageService,
     private authService: AuthService,
-    private store: Store<fromApp.AppState>
+    private store: Store<fromApp.AppState>,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -43,6 +45,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onLogout() {
     this.store.dispatch(new AuthActions.Logout());
+    this.router.navigate(["/auth"]);
   }
 
   ngOnDestroy() {
