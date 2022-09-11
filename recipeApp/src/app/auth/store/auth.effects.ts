@@ -31,9 +31,16 @@ const handleAuthentication = (
   localStorage.setItem('userData', JSON.stringify(user));
   return new AuthActions.AuthenticateSuccess({
     email: email,
+<<<<<<< Updated upstream
     userId: userId,
     token: token,
     expirationDate: expirationDate
+=======
+    userId: localId,
+    token: idToken,
+    expirationDate: expirationDate,
+    redirect: true,
+>>>>>>> Stashed changes
   });
 };
 
@@ -127,8 +134,13 @@ export class AuthEffects {
   @Effect({ dispatch: false })
   authRedirect = this.actions$.pipe(
     ofType(AuthActions.AUTHENTICATE_SUCCESS),
+<<<<<<< Updated upstream
     tap(() => {
       this.router.navigate(['/']);
+=======
+    tap((authSuccessAction: AuthActions.AuthenticateSuccess) => {
+      if (authSuccessAction.payload.redirect) this.router.navigate(["/"]);
+>>>>>>> Stashed changes
     })
   );
 
@@ -163,7 +175,12 @@ export class AuthEffects {
           email: loadedUser.email,
           userId: loadedUser.id,
           token: loadedUser.token,
+<<<<<<< Updated upstream
           expirationDate: new Date(userData._tokenExpirationDate)
+=======
+          expirationDate: new Date(userData._tokenExpirationDate),
+          redirect: true,
+>>>>>>> Stashed changes
         });
 
         // const expirationDuration =
