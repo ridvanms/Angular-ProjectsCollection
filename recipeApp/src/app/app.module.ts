@@ -11,12 +11,6 @@ import { SharedModule } from "./shared/shared.module";
 import { CoreModule } from "./core.module";
 import * as fromApp from "./store/app.reducer";
 import { AuthEffects } from "./auth/store/auth.effects";
-<<<<<<< Updated upstream
-import { environment } from "../environments/environment";
-import { RecipeEffects } from "./recipes/store/recipe.effects";
-=======
-import { RecipeEffect } from "./recipes/store/recipe.effects";
->>>>>>> Stashed changes
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -25,12 +19,7 @@ import { RecipeEffect } from "./recipes/store/recipe.effects";
     HttpClientModule,
     AppRoutingModule,
     StoreModule.forRoot(fromApp.appReducer),
-<<<<<<< Updated upstream
-    EffectsModule.forRoot([AuthEffects, RecipeEffects]),
-
-=======
-    EffectsModule.forRoot([AuthEffects, RecipeEffect]),
->>>>>>> Stashed changes
+    EffectsModule.forRoot([AuthEffects]),
     SharedModule,
     CoreModule,
   ],
