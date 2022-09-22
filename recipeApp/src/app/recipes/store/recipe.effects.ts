@@ -1,18 +1,18 @@
-import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Actions, Effect, ofType } from "@ngrx/effects";
-import { Action, Store } from "@ngrx/store";
+import { Store } from "@ngrx/store";
+import { HttpClient } from "@angular/common/http";
 import { switchMap, map, withLatestFrom } from "rxjs/operators";
-import { Recipe } from "../recipe.model";
 
-import * as FromApp from "../../store/app.reducer";
-import * as RecipeActions from "./recipe.actions";
+import * as RecipesActions from "./recipe.actions";
+import { Recipe } from "../recipe.model";
+import * as fromApp from "../../store/app.reducer";
 
 @Injectable()
 export class RecipeEffects {
   @Effect()
-  fetchRecipe = this.actions$.pipe(
-    ofType(RecipeActions.FETCH_RECIPES),
+  fetchRecipes = this.actions$.pipe(
+    ofType(RecipesActions.FETCH_RECIPES),
     switchMap(() => {
       return this.http.get<Recipe[]>(
         "https://recipebook-10645-default-rtdb.europe-west1.firebasedatabase.app/recipes.json"
@@ -27,12 +27,13 @@ export class RecipeEffects {
       });
     }),
     map((recipes) => {
-      return new RecipeActions.SetRecipes(recipes);
+      return new RecipesActions.SetRecipes(recipes);
     })
   );
+
   @Effect({ dispatch: false })
-  storeRecipe = this.actions$.pipe(
-    ofType(RecipeActions.STORE_RECIPES),
+  storeRecipes = this.actions$.pipe(
+    ofType(RecipesActions.STORE_RECIPES),
     withLatestFrom(this.store.select("recipes")),
     switchMap(([actionData, recipesState]) => {
       return this.http.put(
@@ -45,6 +46,6 @@ export class RecipeEffects {
   constructor(
     private actions$: Actions,
     private http: HttpClient,
-    private store: Store<FromApp.AppState>
+    private store: Store<fromApp.AppState>
   ) {}
 }

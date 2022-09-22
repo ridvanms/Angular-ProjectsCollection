@@ -1,44 +1,48 @@
-import { Actions } from "@ngrx/effects";
-import { StartEdit } from "src/app/shopping-list/store/shopping-list.actions";
-import { Recipe } from "../recipe.model";
-import * as RecipeActions from "./recipe.actions";
+import { Recipe } from '../recipe.model';
+import * as RecipesActions from './recipe.actions';
 
 export interface State {
   recipes: Recipe[];
 }
+
 const initialState: State = {
-  recipes: [],
+  recipes: []
 };
 
-export function recipeReducer(state, action) {
+export function recipeReducer(
+  state = initialState,
+  action: RecipesActions.RecipesActions
+) {
   switch (action.type) {
-    case RecipeActions.SET_RECIPES:
+    case RecipesActions.SET_RECIPES:
       return {
         ...state,
-        recipes: [...action.payload],
+        recipes: [...action.payload]
       };
-    case RecipeActions.ADD_RECIPES:
+    case RecipesActions.ADD_RECIPE:
       return {
         ...state,
-        recipes: [...state.recipes, action.payload],
+        recipes: [...state.recipes, action.payload]
       };
-    case RecipeActions.UPDATE_RECIPES:
-      const updateRecipe = {
+    case RecipesActions.UPDATE_RECIPE:
+      const updatedRecipe = {
         ...state.recipes[action.payload.index],
-        ...action.payload.newRecipe,
+        ...action.payload.newRecipe
       };
-      const updateRecipes = { ...state.recipes };
-      updateRecipes[action.payload.index] = updateRecipe;
+
+      const updatedRecipes = [...state.recipes];
+      updatedRecipes[action.payload.index] = updatedRecipe;
+
       return {
         ...state,
-        recipes: updateRecipes,
+        recipes: updatedRecipes
       };
-    case RecipeActions.DELETE_RECIPES:
+    case RecipesActions.DELETE_RECIPE:
       return {
         ...state,
-        recipes: state.recipes.filter((recipes, index) => {
+        recipes: state.recipes.filter((recipe, index) => {
           return index !== action.payload;
-        }),
+        })
       };
     default:
       return state;
