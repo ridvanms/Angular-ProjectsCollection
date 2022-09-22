@@ -1,5 +1,5 @@
-import { User } from "../user.model";
-import * as AuthActions from "./auth.actions";
+import { User } from '../user.model';
+import * as AuthActions from './auth.actions';
 
 export interface State {
   user: User;
@@ -10,7 +10,7 @@ export interface State {
 const initialState: State = {
   user: null,
   authError: null,
-  loading: false,
+  loading: false
 };
 
 export function authReducer(
@@ -29,31 +29,31 @@ export function authReducer(
         ...state,
         authError: null,
         user: user,
-        loading: false,
+        loading: false
       };
     case AuthActions.LOGOUT:
       return {
         ...state,
-        user: null,
+        user: null
       };
     case AuthActions.LOGIN_START:
-    case AuthActions.SIGN_UP:
+    case AuthActions.SIGNUP_START:
       return {
         ...state,
         authError: null,
-        loading: true,
+        loading: true
       };
     case AuthActions.AUTHENTICATE_FAIL:
       return {
         ...state,
         user: null,
         authError: action.payload,
-        loading: false,
+        loading: false
       };
-    case AuthActions.SIGN_UP:
+    case AuthActions.CLEAR_ERROR:
       return {
         ...state,
-        authError: null,
+        authError: null
       };
     default:
       return state;
