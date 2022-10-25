@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
+import { FormGroup,FormControl, FormArray, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
@@ -103,11 +103,11 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
           })
         )
         .subscribe(recipe => {
-          recipeName = recipe.name;
-          recipeImagePath = recipe.imagePath;
-          recipeDescription = recipe.description;
-          if (recipe['ingredients']) {
-            for (let ingredient of recipe.ingredients) {
+          recipeName = recipe!.name;
+          recipeImagePath = recipe!.imagePath;
+          recipeDescription = recipe!.description;
+          if (recipe!['ingredients']) {
+            for (let ingredient of recipe!.ingredients) {
               recipeIngredients.push(
                 new FormGroup({
                   name: new FormControl(ingredient.name, Validators.required),
