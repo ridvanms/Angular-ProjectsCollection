@@ -13,12 +13,12 @@ import * as RecipeActions from "../recipes/store/recipe.actions";
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
-  private userSub: Subscription;
+  
 
-  constructor(private store: Store<fromApp.AppState>) {}
+  constructor(private store: Store<fromApp.AppState>,private userSubs: Subscription) {}
 
   ngOnInit() {
-    this.userSub = this.store
+    this.userSubs = this.store
       .select("auth")
       .pipe(map((authState) => authState.user))
       .subscribe((user) => {
@@ -43,6 +43,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.userSub.unsubscribe();
+    this.userSubs.unsubscribe();
   }
 }
