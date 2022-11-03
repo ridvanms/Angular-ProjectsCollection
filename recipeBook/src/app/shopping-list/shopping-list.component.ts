@@ -11,15 +11,17 @@ import { LoggingService } from '../logging.service';
   styleUrls: ['./shopping-list.component.css']
 })
 export class ShoppingListComponent implements OnInit, OnDestroy {
-  ingredients: Ingredient[];
-  private subscription: Subscription;
-
+  
+  ingredients: Ingredient[] = []
   constructor(
     private slService: ShoppingListService,
-    private loggingService: LoggingService
-  ) {}
+    private loggingService: LoggingService,
+    private subscription: Subscription,
+    ) {
 
-  ngOnInit() {
+    }
+    
+    ngOnInit() {
     this.ingredients = this.slService.getIngredients();
     this.subscription = this.slService.ingredientsChanged.subscribe(
       (ingredients: Ingredient[]) => {
